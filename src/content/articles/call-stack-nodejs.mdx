@@ -1,0 +1,187 @@
+---
+title: "O que é a Call Stack no Node.js"
+description: "Entenda como a pilha de chamadas funciona e por que ela importa para quem escreve JavaScript."
+category: "Node.js"
+publishedAt: "2026-06-07"
+readingTime: "8 min"
+slug: "call-stack-nodejs"
+---
+
+Quando comecei a estudar JavaScript com mais profundidade, uma das primeiras coisas que fez diferença foi entender que o código não executa de forma mágica.
+
+Por trás de cada função chamada existe uma estrutura simples, mas muito importante: a Call Stack.
+
+## O que é a Call Stack?
+
+A Call Stack é a pilha de chamadas do JavaScript.
+
+Ela guarda qual função está sendo executada naquele momento e quais funções ainda precisam terminar.
+
+Um exemplo simples:
+
+```ts
+function first() {
+  second();
+}
+
+function second() {
+  third();
+}
+
+function third() {
+  console.log("fim");
+}
+
+first();
+```
+
+A execução acontece assim:
+
+```txt
+first()
+↓
+second()
+↓
+third()
+↓
+console.log()
+```
+
+Quando `console.log` termina, cada função volta e sai da pilha.
+
+```txt
+console.log() sai
+third() sai
+second() sai
+first() sai
+```
+
+## Pilha significa último a entrar, primeiro a sair
+
+A Call Stack funciona no modelo LIFO:
+
+```txt
+Last In, First Out
+```
+
+Ou seja, a última função que entra é a primeira que precisa sair.
+
+<Callout>
+Entender esse comportamento ajuda muito a depurar erros, entender recursão e compreender melhor o Event Loop.
+</Callout>
+
+## Exemplo com erro
+
+```ts
+function createUser() {
+  validateUser();
+}
+
+function validateUser() {
+  throw new Error("Usuário inválido");
+}
+
+createUser();
+```
+
+Quando esse erro acontece, o JavaScript mostra o caminho da chamada.
+
+Algo parecido com:
+
+```txt
+Error: Usuário inválido
+    at validateUser
+    at createUser
+```
+
+Isso é o stack trace.
+
+Ele mostra quais funções estavam na pilha quando o erro aconteceu.
+
+## Call Stack e Node.js
+
+O Node.js executa JavaScript usando a engine V8.
+
+Mesmo sendo usado para backend, APIs e servidores, a execução do JavaScript continua tendo uma Call Stack.
+
+Exemplo:
+
+```ts
+import http from "node:http";
+
+const server = http.createServer((request, response) => {
+  response.end("Hello Node.js");
+});
+
+server.listen(3000);
+```
+
+A função passada para `createServer` não fica rodando na Call Stack o tempo todo.
+
+Ela será chamada apenas quando chegar uma requisição.
+
+## Onde entra o Event Loop?
+
+A Call Stack executa o código síncrono.
+
+Quando algo assíncrono acontece, como timer, I/O ou requisição, o Node.js delega esse trabalho e depois coloca o callback para execução quando a Call Stack estiver livre.
+
+```ts
+console.log("A");
+
+setTimeout(() => {
+  console.log("B");
+}, 0);
+
+console.log("C");
+```
+
+A saída será:
+
+```txt
+A
+C
+B
+```
+
+Mesmo com `setTimeout` usando `0`, o callback só executa depois que a Call Stack fica vazia.
+
+## Stack Overflow
+
+Se uma função chama ela mesma sem parar, a pilha cresce até estourar.
+
+```ts
+function loop() {
+  loop();
+}
+
+loop();
+```
+
+Esse código gera um erro parecido com:
+
+```txt
+RangeError: Maximum call stack size exceeded
+```
+
+Isso acontece porque cada chamada de `loop` entra na pilha, mas nenhuma consegue sair.
+
+## Por que isso importa?
+
+Entender a Call Stack ajuda a escrever código melhor.
+
+Principalmente quando trabalho com:
+
+- tratamento de erros;
+- recursão;
+- callbacks;
+- promises;
+- async/await;
+- performance;
+- debugging.
+
+## Fechamento
+
+A Call Stack é uma das bases para entender JavaScript e Node.js.
+
+Ela parece simples, mas ajuda a enxergar o que realmente acontece quando uma função chama outra, quando um erro aparece ou quando código assíncrono entra em cena.
