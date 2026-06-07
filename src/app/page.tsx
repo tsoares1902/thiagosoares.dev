@@ -6,12 +6,15 @@ import { CertificationsSection } from "@/components/sections/home/certifications
 import { ContactSection } from "@/components/sections/home/contact-section";
 import { ProjectsSection } from "@/components/sections/home/projects-section";
 import { ServicesSection } from "@/components/sections/home/services-section";
+import { MatrixRainCanvas } from "@/features/matrix-rain/hooks/components/matrix-rain-canvas";
 
 export default function Home() {
   return (
     <>
-      <section className="bg-[var(--color-hero-background)] text-[var(--color-hero-foreground)]">
-        <Container className="flex min-h-[calc(100vh-var(--header-height))] items-center py-24">
+      <section className="relative overflow-hidden bg-[var(--color-hero-background)] text-[var(--color-hero-foreground)]">
+        <MatrixRainCanvas />
+
+        <Container className="relative z-10 flex min-h-[calc(100vh-var(--header-height))] items-center py-24">
           <div className="max-w-3xl">
             <p className="mb-6 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur">
               Software Engineer · Node.js · React · MongoDB · AWS

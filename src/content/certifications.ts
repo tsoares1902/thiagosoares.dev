@@ -11,7 +11,6 @@ export const certifications: Certification[] = [
   {
     name: "AWS Certified Cloud Practitioner",
     category: "Cloud",
-    price: "US$ 100",
     reason:
       "Validar fundamentos oficiais da AWS e criar base para certificações mais avançadas.",
     status: "Planejada",
@@ -20,7 +19,6 @@ export const certifications: Certification[] = [
   {
     name: "AWS Certified Developer – Associate",
     category: "Cloud",
-    price: "US$ 150",
     reason:
       "Alinhar AWS ao meu trabalho diário com Node.js, APIs, integrações e desenvolvimento cloud.",
     status: "Planejada",
@@ -29,7 +27,6 @@ export const certifications: Certification[] = [
   {
     name: "AWS Certified Solutions Architect – Associate",
     category: "Cloud",
-    price: "US$ 150",
     reason:
       "Validar conhecimentos em arquitetura, escalabilidade, segurança e desenho de soluções distribuídas.",
     status: "Planejada",
@@ -38,7 +35,6 @@ export const certifications: Certification[] = [
   {
     name: "AWS Certified DevOps Engineer – Professional",
     category: "Cloud",
-    price: "US$ 300",
     reason:
       "Aprofundar conhecimentos em CI/CD, observabilidade, automação e operações em cloud.",
     status: "Planejada",
@@ -47,7 +43,6 @@ export const certifications: Certification[] = [
   {
     name: "MongoDB Associate Developer",
     category: "Database",
-    price: "US$ 0 a US$ 150",
     reason:
       "Validar modelagem, agregações, índices e boas práticas em um banco que uso e gosto bastante.",
     status: "Planejada",
@@ -56,7 +51,6 @@ export const certifications: Certification[] = [
   {
     name: "Linux Foundation Certified IT Associate (LFCA)",
     category: "Linux & Containers",
-    price: "US$ 250",
     reason:
       "Formalizar conhecimentos de Linux, cloud, redes, DevOps e operações modernas.",
     status: "Planejada",
@@ -65,7 +59,6 @@ export const certifications: Certification[] = [
   {
     name: "Linux Foundation Certified System Administrator (LFCS)",
     category: "Linux & Containers",
-    price: "US$ 445",
     reason:
       "Validar habilidades práticas de administração Linux usadas em servidores, deploys e troubleshooting.",
     status: "Planejada",
@@ -74,7 +67,6 @@ export const certifications: Certification[] = [
   {
     name: "Certified Kubernetes Administrator (CKA)",
     category: "Linux & Containers",
-    price: "US$ 445",
     reason:
       "Dominar Kubernetes e ampliar conhecimentos em ambientes cloud-native e containers.",
     status: "Planejada",
@@ -83,7 +75,6 @@ export const certifications: Certification[] = [
   {
     name: "ISC2 Certified in Cybersecurity (CC)",
     category: "Security",
-    price: "US$ 199",
     reason:
       "Complementar minha experiência prática com fundamentos oficiais de segurança, riscos e proteção de sistemas.",
     status: "Planejada",

@@ -1,5 +1,5 @@
 {
-  "name": "thiagosoares-site",
+  "name": "thiagosoares-dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,12 +10,17 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.468.0",
     "next": "16.2.7",
+    "next-mdx-remote": "^6.0.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-icons": "^5.4.0",
-    "tailwind-merge": "^2.6.0"
+    "rehype-pretty-code": "^0.14.3",
+    "shiki": "^4.2.0",
+    "tailwind-merge": "^2.6.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

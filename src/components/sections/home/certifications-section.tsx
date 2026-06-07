@@ -38,16 +38,12 @@ export function CertificationsSection() {
                     <Card key={certification.name}>
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <Badge>{certification.status}</Badge>
-
-                          <h4 className="mt-5 text-lg font-semibold tracking-tight">
+                          <h4 className="text-lg font-semibold tracking-tight">
                             {certification.name}
                           </h4>
                         </div>
 
-                        <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs font-semibold text-[var(--color-muted)]">
-                          {certification.price}
-                        </span>
+                        <Badge>{certification.status}</Badge>
                       </div>
 
                       <p className="mt-4 text-sm leading-6 text-[var(--color-muted)]">

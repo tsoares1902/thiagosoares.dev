@@ -1,0 +1,81 @@
+---
+title: "Como instalar o NVM no Ubuntu"
+description: "Um guia prático para configurar Node.js com NVM em um ambiente Linux moderno."
+category: "Linux"
+publishedAt: "2026-06-07"
+readingTime: "5 min"
+slug: "como-instalar-nvm-no-ubuntu"
+---
+
+Quando trabalho em projetos Node.js, gosto de manter o ambiente flexível. Para isso, uma das primeiras ferramentas que costumo instalar no Ubuntu é o NVM.
+
+O NVM permite instalar e alternar entre diferentes versões do Node.js sem depender da versão disponível no gerenciador de pacotes do sistema.
+
+<Callout>
+Neste artigo eu parto do princípio de que você está usando Ubuntu e tem acesso ao terminal.
+</Callout>
+
+## Instalando o NVM
+
+O primeiro passo é executar o script oficial de instalação.
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+
+Depois da instalação, feche e abra o terminal novamente ou carregue o NVM na sessão atual.
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+```
+
+## Verificando a instalação
+
+Agora verifico se o comando ficou disponível.
+
+```bash
+nvm --version
+```
+
+Se o terminal retornar a versão do NVM, a instalação está funcionando.
+
+## Instalando o Node.js
+
+Para instalar a versão LTS mais recente:
+
+```bash
+nvm install --lts
+```
+
+Depois, defino essa versão como padrão.
+
+```bash
+nvm alias default lts/*
+```
+
+## Conferindo Node e npm
+
+```bash
+node -v
+npm -v
+```
+
+## Por que usar NVM?
+
+Eu prefiro usar NVM porque diferentes projetos podem exigir versões diferentes do Node.js.
+
+Em um projeto posso estar usando Node 20, em outro Node 22, e em outro testar uma versão mais recente. Com NVM, essa troca fica simples.
+
+```bash
+nvm install 22
+nvm use 22
+```
+
+## Fechamento
+
+Com o NVM instalado, o ambiente Node.js fica mais organizado e flexível.
+
+Esse é um passo simples, mas ajuda bastante quando começo um novo projeto em Node.js, NestJS, Next.js ou React Native.

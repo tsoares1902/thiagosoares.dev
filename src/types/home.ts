@@ -28,7 +28,6 @@ export type Service = {
 export type Certification = {
   name: string;
   category: "Cloud" | "Database" | "Linux & Containers" | "Security";
-  price: string;
   reason: string;
   status: "Planejada" | "Em andamento" | "Concluída";
   href: string;

@@ -3,7 +3,7 @@ export const siteConfig = {
   domain: "thiagosoares.dev",
   title: "Thiago Soares | Software Engineer",
   description:
-    "Software Engineer especializado em Node.js (NestJS), React (Next.js), MongoDB e AWS.",
+    "Software Engineer apaixonado por Node.js (NestJS), React (Next.js), MongoDB e AWS.",
   navigation: [
     { label: "Sobre", href: "#sobre" },
     { label: "Projetos", href: "#projetos" },
