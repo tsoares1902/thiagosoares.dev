@@ -1,0 +1,13 @@
+.text-balance {
+  text-wrap: balance;
+}
+
+.section-padding {
+  padding-block: 6rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-block: 4.5rem;
+  }
+}
