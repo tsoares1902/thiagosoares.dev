@@ -40,7 +40,7 @@ export function useMatrixRain() {
       context.fillStyle = "rgba(5, 5, 5, 0.08)";
       context.fillRect(0, 0, canvas.width, canvas.height);
 
-      context.fillStyle = "#00ff66";
+      context.fillStyle = "#006437";
       context.font = `${fontSize}px monospace`;
 
       for (let index = 0; index < drops.length; index++) {

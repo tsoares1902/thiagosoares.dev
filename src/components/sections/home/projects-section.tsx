@@ -8,7 +8,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projetos"
-      className="section-padding border-y border-[var(--color-border)] bg-[var(--color-surface-soft)]"
+      className="section-padding border-y border-[var(--color-border)] bg-[linear-gradient(180deg,var(--color-surface-soft),#ffffff)]"
     >
       <Container>
         <SectionHeading
@@ -20,7 +20,7 @@ export function ProjectsSection() {
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {projects.map((project) => (
             <Card key={project.name} className="p-8">
-              <p className="text-sm font-semibold text-emerald-700">
+              <p className="text-sm font-semibold text-[var(--color-primary)]">
                 {project.name}
               </p>
 

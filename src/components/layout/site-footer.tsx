@@ -7,9 +7,12 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaSpotify,
+  FaTelegramPlane,
+  FaWhatsapp,
   FaYoutube
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { SiGmail } from "react-icons/si";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 
@@ -17,90 +20,98 @@ type Channel = {
   label: string;
   href: string;
   icon: IconType;
-  className: string;
 };
 
 const channels: Channel[] = [
   {
+    label: "Gmail",
+    href: siteConfig.socials.email,
+    icon: SiGmail
+  },
+  {
+    label: "WhatsApp",
+    href: siteConfig.socials.whatsapp,
+    icon: FaWhatsapp
+  },
+  {
+    label: "Telegram",
+    href: siteConfig.socials.telegram,
+    icon: FaTelegramPlane
+  },
+  {
     label: "GitHub",
     href: siteConfig.socials.github,
-    icon: FaGithub,
-    className: "hover:text-[#181717]"
+    icon: FaGithub
   },
   {
     label: "X",
     href: siteConfig.socials.x,
-    icon: FaXTwitter,
-    className: "hover:text-[#000000]"
+    icon: FaXTwitter
   },
   {
     label: "Facebook",
     href: siteConfig.socials.facebook,
-    icon: FaFacebookF,
-    className: "hover:text-[#1877F2]"
+    icon: FaFacebookF
   },
   {
     label: "Instagram",
     href: siteConfig.socials.instagram,
-    icon: FaInstagram,
-    className: "hover:text-[#E4405F]"
+    icon: FaInstagram
   },
   {
     label: "Spotify",
     href: siteConfig.socials.spotify,
-    icon: FaSpotify,
-    className: "hover:text-[#1DB954]"
+    icon: FaSpotify
   },
   {
     label: "YouTube",
     href: siteConfig.socials.youtube,
-    icon: FaYoutube,
-    className: "hover:text-[#FF0000]"
+    icon: FaYoutube
   },
   {
     label: "Discord",
     href: siteConfig.socials.discord,
-    icon: FaDiscord,
-    className: "hover:text-[#5865F2]"
+    icon: FaDiscord
   },
   {
     label: "LinkedIn",
     href: siteConfig.socials.linkedin,
-    icon: FaLinkedinIn,
-    className: "hover:text-[#0A66C2]"
+    icon: FaLinkedinIn
   }
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--color-border)] bg-white">
+    <footer
+      id="canais"
+      className="border-t border-[var(--color-primary-hover)] bg-[var(--color-primary)] text-white"
+    >
       <Container className="flex flex-col items-center gap-8 py-12 text-center">
-        <div>
-          <p className="text-sm font-semibold text-[var(--color-foreground)]">
-            Canais
-          </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {channels.map((channel) => {
+            const Icon = channel.icon;
 
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-            {channels.map((channel) => {
-              const Icon = channel.icon;
-
-              return (
-                <Link
-                  key={channel.label}
-                  href={channel.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={channel.label}
-                  className={`flex size-11 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-muted)] transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)] ${channel.className}`}
-                >
-                  <Icon className="size-5" />
-                </Link>
-              );
-            })}
-          </div>
+            return (
+              <Link
+                key={channel.label}
+                href={channel.href}
+                target={
+                  channel.href.startsWith("mailto:") ? undefined : "_blank"
+                }
+                prefetch={false}
+                rel={
+                  channel.href.startsWith("mailto:") ? undefined : "noreferrer"
+                }
+                aria-label={channel.label}
+                className="group flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:-translate-y-0.5 hover:border-white hover:bg-white"
+              >
+                <Icon className="size-5 text-current transition group-hover:text-[var(--color-primary)]" />
+              </Link>
+            );
+          })}
         </div>
 
-        <p className="text-sm text-[var(--color-muted)]">
+        <p className="text-sm text-white/65">
           © 2026 Thiago Soares. Todos os direitos reservados.
         </p>
       </Container>

@@ -1,19 +1,48 @@
+import type { Metadata } from "next";
 import { ArticleCard } from "@/components/articles/article-card";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { siteConfig } from "@/config/site";
 import { getArticles } from "@/lib/articles";
 
-export const metadata = {
+const title = "Artigos";
+const description =
+  "Artigos, experiências e aprendizados sobre Node.js, React, AWS, Linux e arquitetura de software.";
+
+export const metadata: Metadata = {
   title: "Artigos",
-  description:
-    "Artigos, experiências e aprendizados sobre Node.js, React, AWS, Linux e arquitetura de software."
+  description,
+  alternates: {
+    canonical: "/artigos"
+  },
+  openGraph: {
+    type: "website",
+    title,
+    description,
+    url: `${siteConfig.url}/artigos`,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} | Artigos`
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [siteConfig.ogImage]
+  }
 };
 
 export default async function ArticlesPage() {
   const articles = await getArticles();
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white">
       <Container>
         <SectionHeading
           eyebrow="Artigos"

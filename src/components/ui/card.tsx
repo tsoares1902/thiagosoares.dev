@@ -7,7 +7,7 @@ export function Card({ className, children, ...props }: CardProps) {
   return (
     <article
       className={cn(
-        "rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-white p-6 transition hover:-translate-y-1 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-card)]",
+        "rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-white/90 p-6 shadow-[0_1px_0_rgba(0,100,55,0.04)] transition hover:-translate-y-1 hover:border-[var(--color-primary)] hover:bg-white hover:shadow-[var(--shadow-card)]",
         className
       )}
       {...props}

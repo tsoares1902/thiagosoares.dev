@@ -1,16 +1,34 @@
 export const siteConfig = {
   name: "Thiago Soares",
   domain: "thiagosoares.dev",
+  url: "https://thiagosoares.dev",
   title: "Thiago Soares | Software Engineer",
   description:
-    "Software Engineer apaixonado por Node.js (NestJS), React (Next.js), MongoDB e AWS.",
+    "Tecnologia para resolver seus problemas.",
+  keywords: [
+    "Thiago Soares",
+    "Software Engineer",
+    "Node.js",
+    "NestJS",
+    "React",
+    "Next.js",
+    "MongoDB",
+    "AWS",
+    "Backend Engineer",
+    "Full Stack Developer",
+    "TypeScript",
+    "JavaScript",
+    "Cloud Engineer",
+    "Arquitetura de Software"
+  ],
+  ogImage: "/opengraph-image",
   navigation: [
     { label: "Sobre", href: "#sobre" },
     { label: "Projetos", href: "#projetos" },
     { label: "Serviços", href: "#servicos" },
     { label: "Certificações", href: "#certificacoes" },
     { label: "Artigos", href: "#artigos" },
-    { label: "Contato", href: "#contato" }
+    { label: "Canais", href: "#canais" }
   ],
   languages: [
     {
@@ -33,6 +51,9 @@ export const siteConfig = {
     }
   ],
   socials: {
+    email: "mailto:tcsoares84@gmail.com",
+    whatsapp: "https://wa.me/",
+    telegram: "https://t.me/",
     github: "https://github.com/tsoares1902",
     x: "https://x.com/",
     facebook: "https://facebook.com/",

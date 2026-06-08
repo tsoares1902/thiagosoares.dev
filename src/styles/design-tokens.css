@@ -1,23 +1,25 @@
 :root {
-  --color-background: #ffffff;
-  --color-foreground: #111111;
+  --color-background: #f8fbf5;
+  --color-foreground: #10281d;
 
-  --color-muted: #737373;
-  --color-muted-foreground: #525252;
+  --color-muted: #60746a;
+  --color-muted-foreground: #365245;
 
   --color-surface: #ffffff;
-  --color-surface-soft: #fafafa;
-  --color-surface-muted: #f5f5f5;
+  --color-surface-soft: #f6fbf8;
+  --color-surface-muted: #eef7f2;
+  --color-surface-warm: #fff8f6;
 
-  --color-border: #e5e5e5;
-  --color-border-strong: #d4d4d4;
-
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
+  --color-border: #dce8e1;
+  --color-border-strong: #b9d1c3;
 
   --color-hero-background: #050505;
   --color-hero-foreground: #ffffff;
-  --color-matrix-green: #00ff66;
+  --color-matrix-green: #006437;
+  --color-primary: var(--color-matrix-green);
+  --color-primary-hover: #00522d;
+  --color-palestra-red: #c42026;
+  --color-palestra-red-soft: #fdeceb;
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;

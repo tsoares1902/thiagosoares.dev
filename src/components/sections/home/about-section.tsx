@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="section-padding">
+    <section id="sobre" className="section-padding bg-white">
       <Container>
         <SectionHeading
           eyebrow={aboutContent.eyebrow}
@@ -19,8 +19,9 @@ export function AboutSection() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-soft)] p-6">
+        <div className="mt-12 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[linear-gradient(135deg,var(--color-surface-soft),var(--color-surface-warm))] p-6 shadow-[0_20px_60px_rgba(0,100,55,0.05)]">
           <p className="text-sm font-semibold text-[var(--color-foreground)]">
+            <span className="mr-2 inline-flex h-2 w-6 rounded-full bg-[var(--color-palestra-red)] align-middle" />
             {aboutContent.organizationsTitle}
           </p>
 
@@ -37,7 +38,7 @@ export function AboutSection() {
 
             return (
               <Card key={skill.title}>
-                <div className="mb-6 flex size-12 items-center justify-center rounded-2xl bg-[var(--color-surface-muted)]">
+                <div className="mb-6 flex size-12 items-center justify-center rounded-2xl bg-[var(--color-surface-muted)] text-[var(--color-primary)]">
                   <Icon className="size-5" />
                 </div>
 

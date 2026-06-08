@@ -4,22 +4,22 @@ export const projectsContent = {
   eyebrow: "Projetos",
   title: "O que já fiz?",
   description:
-    "Durante minha carreira participei da construção de aplicações web, APIs, integrações e produtos digitais para diferentes segmentos. Alguns projetos nasceram em empresas, outros em startups e alguns surgiram por iniciativa própria para explorar novas tecnologias e validar ideias."
+    "Alem de desenvolver novas features em projetos existentes tenho alguns que posso compartilhar."
 };
 
 export const projects: Project[] = [
   {
-    name: "fitematch site",
-    type: "Plataforma Web",
+    name: "site",
+    type: "fitematch",
     description:
-      "Plataforma desenvolvida para conectar profissionais e empresas, explorando conceitos modernos de produto digital, experiência do usuário, SEO e escalabilidade.",
+      "Desenvolvida para conectar profissionais e empresas explorando a experiencia do usuário.",
     stack: ["Next.js", "React", "TypeScript", "Tailwind", "SEO"]
   },
   {
-    name: "fitematch app",
-    type: "Aplicativo Mobile",
+    name: "app",
+    type: "fitematch",
     description:
       "Aplicativo construído para candidatos e recrutadores, com foco em experiência mobile, onboarding, autenticação e integração com APIs.",
-    stack: ["React Native", "Expo", "TypeScript", "Node.js"]
+    stack: ["Node.js", "Typescript", "React Native", "Expo"]
   }
 ];

@@ -9,22 +9,22 @@ type ArticleHeaderProps = {
 
 export function ArticleHeader({ article }: ArticleHeaderProps) {
   return (
-    <header className="border-b border-[var(--color-border)] bg-[var(--color-surface-soft)]">
+    <header className="border-b border-[var(--color-border)] bg-[linear-gradient(180deg,var(--color-surface-soft),#ffffff)]">
       <Container className="py-16">
         <Link
           href="/artigos"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-muted)] transition hover:text-[var(--color-foreground)]"
+          className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-4 py-2 text-sm font-semibold text-[var(--color-muted-foreground)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
         >
           <ArrowLeft className="size-4" />
           Voltar para artigos
         </Link>
 
         <div className="mt-10 max-w-3xl">
-          <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-[var(--color-muted)]">
+          <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-[var(--color-primary)]">
             <span>{article.category}</span>
-            <span>•</span>
+            <span className="text-[var(--color-border-strong)]">•</span>
             <span>{article.readingTime}</span>
-            <span>•</span>
+            <span className="text-[var(--color-border-strong)]">•</span>
             <time dateTime={article.publishedAt}>
               {new Intl.DateTimeFormat("pt-BR", {
                 day: "2-digit",

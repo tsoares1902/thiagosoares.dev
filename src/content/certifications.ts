@@ -4,7 +4,7 @@ export const certificationsContent = {
   eyebrow: "Certificações",
   title: "Como me preparei?",
   description:
-    "Acredito que aprender continuamente faz parte da profissão. As certificações abaixo representam conhecimentos que considero importantes para construir aplicações modernas, escaláveis e seguras."
+    "Trabalhar com tecnologia é um eterno teste de habilidades."
 };
 
 export const certifications: Certification[] = [
@@ -49,14 +49,6 @@ export const certifications: Certification[] = [
     href: "https://learn.mongodb.com/pages/certification-program"
   },
   {
-    name: "Linux Foundation Certified IT Associate (LFCA)",
-    category: "Linux & Containers",
-    reason:
-      "Formalizar conhecimentos de Linux, cloud, redes, DevOps e operações modernas.",
-    status: "Planejada",
-    href: "https://training.linuxfoundation.org/certification/certified-it-associate/"
-  },
-  {
     name: "Linux Foundation Certified System Administrator (LFCS)",
     category: "Linux & Containers",
     reason:
@@ -71,6 +63,14 @@ export const certifications: Certification[] = [
       "Dominar Kubernetes e ampliar conhecimentos em ambientes cloud-native e containers.",
     status: "Planejada",
     href: "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/"
+  },
+  {
+    name: "AWS Certified Security - Specialty",
+    category: "Security",
+    reason:
+      "Aprofundar práticas de segurança na AWS, incluindo identidade, proteção de dados, resposta a incidentes e workloads seguros em cloud.",
+    status: "Planejada",
+    href: "https://aws.amazon.com/certification/certified-security-specialty/"
   },
   {
     name: "ISC2 Certified in Cybersecurity (CC)",

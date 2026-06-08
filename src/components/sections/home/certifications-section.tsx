@@ -14,7 +14,7 @@ export function CertificationsSection() {
   return (
     <section
       id="certificacoes"
-      className="section-padding border-y border-[var(--color-border)] bg-[var(--color-surface-soft)]"
+      className="section-padding border-y border-[var(--color-border)] bg-[linear-gradient(180deg,#ffffff,var(--color-surface-soft))]"
     >
       <Container>
         <SectionHeading
@@ -31,7 +31,9 @@ export function CertificationsSection() {
 
             return (
               <div key={category}>
-                <h3 className="text-lg font-semibold">{category}</h3>
+                <h3 className="inline-flex rounded-full border border-[var(--color-border-strong)] bg-white px-4 py-2 text-sm font-semibold text-[var(--color-primary)]">
+                  {category}
+                </h3>
 
                 <div className="mt-5 grid gap-5 md:grid-cols-2">
                   {categoryCertifications.map((certification) => (
@@ -53,6 +55,7 @@ export function CertificationsSection() {
                       <Link
                         href={certification.href}
                         target="_blank"
+                        prefetch={false}
                         rel="noreferrer"
                         className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] transition hover:text-[var(--color-primary-hover)]"
                       >

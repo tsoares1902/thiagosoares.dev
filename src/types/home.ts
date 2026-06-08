@@ -1,5 +1,4 @@
 import type { LucideIcon } from "lucide-react";
-import type { IconType } from "react-icons";
 
 export type SkillCard = {
   title: string;
@@ -39,11 +38,4 @@ export type Article = {
   category: string;
   readTime: string;
   slug: string;
-};
-
-export type ContactChannel = {
-  label: string;
-  value: string;
-  href: string;
-  icon: LucideIcon | IconType;
 };

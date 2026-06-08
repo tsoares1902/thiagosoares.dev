@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function ServicesSection() {
   return (
-    <section id="servicos" className="section-padding">
+    <section id="servicos" className="section-padding bg-white">
       <Container>
         <SectionHeading
           eyebrow={servicesContent.eyebrow}
@@ -13,13 +13,13 @@ export function ServicesSection() {
           description={servicesContent.description}
         />
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {services.map((service) => {
             const Icon = service.icon;
 
             return (
               <Card key={service.title}>
-                <div className="mb-6 flex size-12 items-center justify-center rounded-2xl bg-[var(--color-surface-muted)]">
+                <div className="mb-6 flex size-12 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] text-[var(--color-primary)]">
                   <Icon className="size-5" />
                 </div>
 

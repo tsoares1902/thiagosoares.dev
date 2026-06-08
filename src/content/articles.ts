@@ -4,7 +4,7 @@ export const articlesContent = {
   eyebrow: "Artigos",
   title: "O que penso?",
   description:
-    "Este espaço é onde compartilho experiências, aprendizados, erros, acertos e reflexões sobre tecnologia. Não escrevo apenas sobre ferramentas, mas também sobre processos, arquitetura e a forma como enxergo a construção de software."
+    "Este espaço é onde compartilho experiências e reflexões sobre tecnologia."
 };
 
 export const articles: Article[] = [

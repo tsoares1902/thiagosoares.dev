@@ -10,11 +10,11 @@ export function ArticleCard({ article }: ArticleCardProps) {
   return (
     <Link
       href={article.href}
-      className="group block rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-white p-6 transition hover:-translate-y-1 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-card)]"
+      className="group block rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-white p-6 shadow-[0_1px_0_rgba(0,100,55,0.04)] transition hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-card)]"
     >
-      <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-[var(--color-muted)]">
+      <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-[var(--color-primary)]">
         <span>{article.category}</span>
-        <span>•</span>
+        <span className="text-[var(--color-border-strong)]">•</span>
         <span>{article.readingTime}</span>
       </div>
 

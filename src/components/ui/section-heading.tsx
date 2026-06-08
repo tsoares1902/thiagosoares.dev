@@ -15,11 +15,11 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn("max-w-3xl", className)}>
-      <p className="text-sm font-semibold text-[var(--color-primary)]">
+      <p className="inline-flex rounded-full border border-[var(--color-border-strong)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)]">
         {eyebrow}
       </p>
 
-      <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-[var(--color-foreground)] sm:text-4xl">
+      <h2 className="mt-4 text-balance text-2xl font-semibold uppercase tracking-normal text-[var(--color-foreground)] sm:text-3xl">
         {title}
       </h2>
 

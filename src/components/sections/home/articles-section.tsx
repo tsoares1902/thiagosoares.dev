@@ -8,7 +8,7 @@ export async function ArticlesSection() {
   const articles = await getArticles();
 
   return (
-    <section id="artigos" className="section-padding">
+    <section id="artigos" className="section-padding bg-white">
       <Container>
         <SectionHeading
           eyebrow={articlesContent.eyebrow}

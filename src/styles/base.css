@@ -8,7 +8,9 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--color-background);
+  background:
+    radial-gradient(circle at top left, rgba(0, 100, 55, 0.08), transparent 30rem),
+    linear-gradient(180deg, #ffffff 0%, var(--color-background) 42rem);
   color: var(--color-foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
@@ -26,6 +28,6 @@ select {
 }
 
 ::selection {
-  background: var(--color-foreground);
-  color: var(--color-background);
+  background: var(--color-primary);
+  color: #ffffff;
 }
