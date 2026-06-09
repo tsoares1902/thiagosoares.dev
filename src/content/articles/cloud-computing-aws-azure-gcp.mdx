@@ -1,0 +1,89 @@
+---
+title: "O que é Cloud Computing? Entendendo AWS, Azure e Google Cloud na prática"
+description: "Uma introdução clara sobre computação em nuvem, principais provedores, modelos de serviço e por que cloud virou parte essencial do desenvolvimento moderno."
+category: "Cloud"
+publishedAt: "2026-03-12"
+readingTime: "9 min"
+slug: "cloud-computing-aws-azure-gcp"
+---
+
+Cloud Computing é a prática de usar infraestrutura e serviços de computação pela internet. Em vez de comprar servidores, configurar datacenter e cuidar de tudo manualmente, você usa recursos sob demanda em provedores especializados.
+
+Isso inclui máquinas virtuais, bancos de dados, storage, filas, DNS, certificados, redes, observabilidade e serviços gerenciados.
+
+## Servidor próprio vs cloud
+
+Em um servidor próprio, você precisa se preocupar com compra, instalação, energia, rede, backup, atualização e escala.
+
+Na cloud, você provisiona recursos conforme a necessidade:
+
+```txt
+Aplicação
+Banco gerenciado
+Storage
+DNS
+SSL
+Monitoramento
+```
+
+Você ainda precisa tomar boas decisões de arquitetura, mas não precisa cuidar de cada detalhe físico.
+
+## AWS
+
+AWS é um dos provedores mais populares. Alguns serviços conhecidos:
+
+- EC2 para máquinas virtuais;
+- S3 para arquivos e objetos;
+- RDS para bancos relacionais;
+- Lambda para serverless;
+- Route 53 para DNS;
+- CloudFront para CDN.
+
+## Azure
+
+Azure é forte em empresas que já usam o ecossistema Microsoft. Ele oferece serviços para aplicações, dados, identidade, redes, serverless e integração corporativa.
+
+## Google Cloud
+
+Google Cloud Platform se destaca em dados, Kubernetes, infraestrutura global e serviços como BigQuery, Cloud Run e Cloud Storage.
+
+## IaaS, PaaS e SaaS
+
+IaaS entrega infraestrutura:
+
+```txt
+Você gerencia sistema operacional, runtime e aplicação.
+```
+
+PaaS entrega uma plataforma:
+
+```txt
+Você publica a aplicação e o provedor cuida de mais detalhes.
+```
+
+SaaS entrega um produto pronto:
+
+```txt
+Você usa o serviço sem gerenciar infraestrutura.
+```
+
+## Exemplos práticos
+
+Uma aplicação Next.js pode usar:
+
+- deploy na Vercel;
+- banco PostgreSQL gerenciado;
+- storage S3 para uploads;
+- CloudFront para CDN;
+- Route 53 para DNS;
+- certificado SSL automático.
+
+Uma API Node.js pode rodar em container, Cloud Run, ECS, Kubernetes ou serverless.
+
+## Por que cloud importa para desenvolvedores?
+
+Cloud deixou de ser assunto apenas de infraestrutura. Desenvolvedores precisam entender deploy, logs, variáveis de ambiente, segurança, custos e limites dos serviços que usam.
+
+## Fechamento
+
+Cloud Computing não é só "rodar em outro computador". É um conjunto de serviços que muda a forma como sistemas são construídos, publicados, escalados e operados.

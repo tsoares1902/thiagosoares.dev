@@ -12,11 +12,11 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
     <header className="border-b border-[var(--color-border)] bg-[linear-gradient(180deg,var(--color-surface-soft),#ffffff)]">
       <Container className="py-16">
         <Link
-          href="/artigos"
+          href="/blog"
           className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-4 py-2 text-sm font-semibold text-[var(--color-muted-foreground)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
         >
           <ArrowLeft className="size-4" />
-          Voltar para artigos
+          Voltar para o blog
         </Link>
 
         <div className="mt-10 max-w-3xl">

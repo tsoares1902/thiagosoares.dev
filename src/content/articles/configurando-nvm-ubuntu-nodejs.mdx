@@ -1,0 +1,111 @@
+---
+title: "Configurando o NVM no Ubuntu: gerenciando múltiplas versões do Node.js"
+description: "Um guia prático para instalar o NVM no Ubuntu e alternar versões do Node.js por projeto."
+category: "Linux"
+publishedAt: "2026-01-15"
+readingTime: "6 min"
+slug: "configurando-nvm-ubuntu-nodejs"
+---
+
+Quando trabalho com Node.js no Ubuntu, uma das primeiras ferramentas que instalo é o NVM.
+
+NVM significa Node Version Manager. Ele permite instalar, remover e alternar versões do Node.js sem depender da versão disponível no gerenciador de pacotes do sistema.
+
+Isso faz diferença porque projetos diferentes podem exigir versões diferentes. Um projeto legado pode estar em Node 18, uma API nova pode usar Node 22, e um estudo local pode testar uma versão ainda mais recente.
+
+## Por que usar NVM?
+
+Instalar Node.js diretamente pelo `apt` até funciona, mas costuma deixar o ambiente rígido. Com NVM, a versão do Node passa a ser uma decisão do projeto.
+
+Algumas vantagens:
+
+- alternar versões rapidamente;
+- evitar conflito entre projetos;
+- instalar versões LTS com facilidade;
+- manter o Node isolado no usuário atual;
+- documentar a versão esperada com `.nvmrc`.
+
+## Instalando no Ubuntu
+
+Antes de instalar, atualize o sistema e garanta ferramentas básicas:
+
+```bash
+sudo apt update
+sudo apt install -y curl ca-certificates build-essential
+```
+
+Depois, execute o script oficial de instalação:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+
+Feche e abra o terminal novamente. Se quiser carregar na sessão atual:
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+```
+
+Confirme a instalação:
+
+```bash
+nvm --version
+```
+
+## Instalando o Node LTS
+
+Para instalar a versão LTS mais recente:
+
+```bash
+nvm install --lts
+```
+
+Para definir essa versão como padrão:
+
+```bash
+nvm alias default lts/*
+```
+
+Verifique:
+
+```bash
+node -v
+npm -v
+```
+
+## Usando `.nvmrc`
+
+Em projetos profissionais, gosto de deixar um arquivo `.nvmrc` na raiz:
+
+```txt
+22
+```
+
+Depois, qualquer pessoa pode entrar no projeto e executar:
+
+```bash
+nvm use
+```
+
+Se a versão ainda não estiver instalada:
+
+```bash
+nvm install
+```
+
+## Comandos úteis
+
+```bash
+nvm ls
+nvm ls-remote --lts
+nvm install 20
+nvm use 20
+nvm alias default 22
+nvm uninstall 18
+```
+
+## Fechamento
+
+NVM é uma ferramenta simples, mas melhora muito a previsibilidade do ambiente. Para quem trabalha com Node.js, React, Next.js ou NestJS no Linux, é uma base muito boa para evitar problemas de versão antes mesmo de começar a codar.

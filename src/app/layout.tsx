@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { siteConfig } from "@/config/site";
+import { seoConfig } from "@/config/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,20 +17,33 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`
+    default: seoConfig.title,
+    template: `%s | ${seoConfig.siteName}`
   },
-  description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
-  keywords: [...siteConfig.keywords],
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
-  applicationName: siteConfig.name,
+  description: seoConfig.description,
+  metadataBase: new URL(seoConfig.siteUrl),
+  keywords: [...seoConfig.keywords],
+  authors: [{ name: seoConfig.siteName, url: seoConfig.siteUrl }],
+  creator: seoConfig.siteName,
+  publisher: seoConfig.siteName,
+  applicationName: seoConfig.siteName,
   manifest: "/manifest.webmanifest",
   icons: {
     icon: "/favicon.ico"
-    // TODO: adicionar src/app/icon.png e src/app/apple-icon.png quando os assets finais estiverem prontos.
+  },
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": seoConfig.rssPath
+    }
+  },
+  verification: {
+    ...(seoConfig.verification.google
+      ? { google: seoConfig.verification.google }
+      : {}),
+    ...(seoConfig.verification.bing
+      ? { other: { "msvalidate.01": seoConfig.verification.bing } }
+      : {})
   },
   robots: {
     index: true,
@@ -46,13 +59,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
+    title: seoConfig.title,
+    description: seoConfig.description,
+    url: seoConfig.siteUrl,
+    siteName: seoConfig.siteName,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: seoConfig.openGraphImagePath,
         width: 1200,
         height: 630,
         alt: "Thiago Soares | Software Engineer"
@@ -61,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage]
+    title: seoConfig.title,
+    description: seoConfig.description,
+    images: [seoConfig.openGraphImagePath]
   }
 };
 

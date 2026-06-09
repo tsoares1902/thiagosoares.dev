@@ -1,0 +1,82 @@
+---
+title: "A história do React: por que o Facebook criou uma nova forma de construir interfaces"
+description: "Entenda o contexto em que o React surgiu, quais problemas ele resolveu e por que mudou o desenvolvimento frontend."
+category: "React"
+publishedAt: "2026-03-26"
+readingTime: "8 min"
+slug: "historia-do-react"
+---
+
+React surgiu em um momento em que interfaces web estavam ficando cada vez mais complexas.
+
+Aplicações deixaram de ser páginas estáticas e passaram a se comportar como produtos interativos, com estado, notificações, comentários, filtros, formulários e atualizações em tempo real.
+
+## Antes do React
+
+Muitas interfaces eram construídas manipulando o DOM diretamente:
+
+```js
+const button = document.querySelector("button");
+const counter = document.querySelector("#counter");
+
+button.addEventListener("click", () => {
+  counter.textContent = Number(counter.textContent) + 1;
+});
+```
+
+Isso funciona em exemplos pequenos, mas fica difícil manter quando a interface cresce.
+
+## O problema no Facebook
+
+O Facebook tinha interfaces enormes e altamente dinâmicas. Manter estado e tela sincronizados era um desafio.
+
+React nasceu para tornar essa relação mais previsível: a interface passa a ser uma função do estado.
+
+## Componentes
+
+Um dos grandes acertos do React foi popularizar a ideia de componentes:
+
+```tsx
+function ProfileCard({ name }: { name: string }) {
+  return <article>{name}</article>;
+}
+```
+
+Componentes permitem quebrar a interface em partes menores, reutilizáveis e testáveis.
+
+## Virtual DOM
+
+O Virtual DOM ajudou o React a calcular mudanças na interface antes de aplicar atualizações no DOM real.
+
+Mais importante que o detalhe interno é o modelo mental: você descreve o que quer renderizar, e o React cuida de atualizar a tela.
+
+## JSX
+
+JSX causou estranhamento no começo, porque mistura marcação e JavaScript:
+
+```tsx
+function Hello() {
+  return <h1>Olá, React</h1>;
+}
+```
+
+Com o tempo, ficou claro que JSX aproxima estrutura, dados e comportamento do componente.
+
+## Fluxo unidirecional
+
+React incentivou fluxo de dados unidirecional. Dados descem por props, eventos sobem por callbacks, e o estado fica em lugares mais previsíveis.
+
+## Ecossistema
+
+React abriu caminho para um ecossistema enorme:
+
+- Next.js para aplicações web completas;
+- React Native para mobile;
+- bibliotecas de estado;
+- design systems;
+- ferramentas de teste;
+- frameworks meta baseados em React.
+
+## Fechamento
+
+React mudou o frontend porque trouxe um modelo mental mais declarativo para construir interfaces complexas. Hoje, mesmo com novas ferramentas surgindo, sua influência continua enorme.

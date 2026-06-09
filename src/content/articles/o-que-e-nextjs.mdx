@@ -1,0 +1,79 @@
+---
+title: "O que é Next.js e por que ele se tornou tão popular no ecossistema React"
+description: "Uma visão prática sobre Next.js, rotas, renderização, SEO, App Router e por que ele se tornou uma escolha forte para aplicações React modernas."
+category: "Next.js"
+publishedAt: "2026-06-04"
+readingTime: "8 min"
+slug: "o-que-e-nextjs"
+---
+
+Next.js é um framework baseado em React para construir aplicações web completas.
+
+React resolve muito bem a construção de interfaces, mas uma aplicação moderna também precisa de rotas, renderização, SEO, otimização de imagens, APIs, cache e deploy. Next.js organiza essas peças em um framework.
+
+## Relação com React
+
+Você continua escrevendo componentes React:
+
+```tsx
+export function Greeting() {
+  return <h1>Olá, Next.js</h1>;
+}
+```
+
+A diferença é que o Next.js adiciona estrutura de aplicação ao redor desses componentes.
+
+## Rotas
+
+No App Router, arquivos `page.tsx` viram rotas:
+
+```txt
+src/app/page.tsx          -> /
+src/app/blog/page.tsx     -> /blog
+src/app/blog/[slug]/page.tsx -> /blog/meu-post
+```
+
+Isso reduz a necessidade de configurar um roteador manualmente.
+
+## SSR e SSG
+
+Next.js suporta diferentes estratégias de renderização:
+
+- SSR para renderizar no servidor sob demanda;
+- SSG para gerar HTML estático;
+- ISR para regenerar conteúdo em intervalos;
+- Client Components para interações no navegador.
+
+## App Router
+
+O App Router trouxe layouts aninhados, Server Components, Route Handlers e uma forma mais moderna de organizar aplicações.
+
+```tsx
+export default function Page() {
+  return <main>Minha página</main>;
+}
+```
+
+## Route Handlers
+
+Route Handlers permitem criar endpoints:
+
+```ts
+export async function GET() {
+  return Response.json({ ok: true });
+}
+```
+
+Eles podem ser usados para feeds, webhooks, APIs internas e integrações.
+
+## SEO
+
+Next.js tem Metadata API, sitemap, robots, OpenGraph dinâmico e suporte a páginas estáticas. Isso ajuda muito em blogs, sites institucionais e produtos que dependem de indexação.
+
+## Deploy
+
+Next.js funciona muito bem na Vercel, mas também pode rodar em outros ambientes. A escolha depende do projeto, tráfego, custo e necessidade de infraestrutura.
+
+## Fechamento
+
+Next.js se tornou popular porque combina React com decisões práticas para construir aplicações reais: rotas, renderização, performance, SEO e deploy em um fluxo produtivo.

@@ -34,7 +34,7 @@ export async function getArticleBySlug(slug: string) {
     content,
     metadata: {
       ...frontmatter,
-      href: `/artigos/${frontmatter.slug}`
+      href: `/blog/${frontmatter.slug}`
     }
   };
 }

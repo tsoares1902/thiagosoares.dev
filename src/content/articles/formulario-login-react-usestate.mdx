@@ -1,0 +1,115 @@
+---
+title: "Criando um formulário de login com React usando useState"
+description: "Um exemplo prático de formulário de login com email, senha, estado local e submit básico em React."
+category: "React"
+publishedAt: "2026-05-21"
+readingTime: "9 min"
+slug: "formulario-login-react-usestate"
+---
+
+Formulários são uma ótima forma de praticar estado em React. Neste exemplo, vamos criar um formulário de login com email, senha, inputs controlados e submit básico.
+
+## Componente LoginForm
+
+```tsx
+"use client";
+
+import { FormEvent, useState } from "react";
+
+export function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!email || !password) {
+      console.log("Preencha email e senha");
+      return;
+    }
+
+    console.log({
+      email,
+      password
+    });
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Email
+        <input
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </label>
+
+      <label>
+        Senha
+        <input
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </label>
+
+      <button type="submit">Entrar</button>
+    </form>
+  );
+}
+```
+
+## Inputs controlados
+
+Um input controlado recebe `value` do estado e atualiza esse estado com `onChange`.
+
+```tsx
+<input
+  value={email}
+  onChange={(event) => setEmail(event.target.value)}
+/>
+```
+
+Isso permite validar, limpar, formatar e enviar os dados com mais controle.
+
+## preventDefault
+
+Por padrão, o navegador tenta enviar o formulário e recarregar a página. Em aplicações React, geralmente queremos controlar esse fluxo.
+
+```tsx
+function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+}
+```
+
+## Validação simples
+
+Antes de enviar, podemos validar campos obrigatórios:
+
+```tsx
+if (!email || !password) {
+  console.log("Preencha email e senha");
+  return;
+}
+```
+
+Em uma aplicação real, essa validação pode evoluir bastante.
+
+## Cuidado com senha
+
+O exemplo mostra o payload no console apenas para estudo. Em produção, não faça log de senha. Dados sensíveis precisam ser tratados com cuidado.
+
+## Próximos passos
+
+Depois, esse formulário poderia evoluir para:
+
+- React Hook Form;
+- Zod para validação;
+- mensagens de erro por campo;
+- integração com API;
+- autenticação com cookies seguros.
+
+## Fechamento
+
+Esse exemplo é simples, mas cobre uma base importante: estado local, inputs controlados, submit, validação e fluxo básico de dados em React.

@@ -1,3 +1,4 @@
+import { seoConfig } from "@/config/seo";
 import { siteConfig } from "@/config/site";
 
 type JsonLdProps = {
@@ -8,24 +9,23 @@ type JsonLdProps = {
 export const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: siteConfig.name,
-  url: siteConfig.url,
+  name: seoConfig.siteName,
+  url: seoConfig.siteUrl,
   jobTitle: "Software Engineer",
-  description:
-    "Software Engineer especializado em Node.js, React, MongoDB e AWS.",
+  description: seoConfig.description,
   sameAs: [siteConfig.socials.github]
 };
 
 export const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  description: siteConfig.description,
+  name: seoConfig.siteName,
+  url: seoConfig.siteUrl,
+  description: seoConfig.description,
   inLanguage: "pt-BR",
   publisher: {
     "@type": "Person",
-    name: siteConfig.name
+    name: seoConfig.siteName
   }
 };
 

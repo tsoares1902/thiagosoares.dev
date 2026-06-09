@@ -1,0 +1,144 @@
+---
+title: "Criando seu primeiro projeto com Next.js: páginas, rotas e componentes"
+description: "Um guia inicial para criar um projeto Next.js, entender a estrutura de pastas, criar componentes e preparar o caminho para deploy."
+category: "Next.js"
+publishedAt: "2026-06-08"
+readingTime: "9 min"
+slug: "primeiro-projeto-nextjs"
+---
+
+Criar um primeiro projeto com Next.js é uma boa forma de entender como React pode virar uma aplicação completa.
+
+## Criando o projeto
+
+Use o `create-next-app`:
+
+```bash
+npx create-next-app@latest meu-app
+```
+
+Durante a configuração, você pode escolher TypeScript, ESLint, Tailwind CSS e App Router.
+
+Entre na pasta:
+
+```bash
+cd meu-app
+npm run dev
+```
+
+Abra:
+
+```txt
+http://localhost:3000
+```
+
+## App Router
+
+A pasta `app` define as rotas:
+
+```txt
+src/app
+  layout.tsx
+  page.tsx
+```
+
+`page.tsx` representa uma rota. O arquivo da raiz vira `/`.
+
+## page.tsx
+
+```tsx
+export default function HomePage() {
+  return (
+    <main>
+      <h1>Meu primeiro app Next.js</h1>
+    </main>
+  );
+}
+```
+
+## layout.tsx
+
+`layout.tsx` envolve as páginas:
+
+```tsx
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pt-BR">
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+## Componentes
+
+Crie uma pasta para componentes:
+
+```txt
+src/components/header.tsx
+```
+
+Exemplo:
+
+```tsx
+export function Header() {
+  return (
+    <header>
+      <strong>Meu App</strong>
+    </header>
+  );
+}
+```
+
+Use na página:
+
+```tsx
+import { Header } from "@/components/header";
+
+export default function HomePage() {
+  return (
+    <>
+      <Header />
+      <main>Conteúdo</main>
+    </>
+  );
+}
+```
+
+## CSS e Tailwind
+
+Se você escolheu Tailwind, pode estilizar com classes utilitárias:
+
+```tsx
+export function Button() {
+  return (
+    <button className="rounded bg-black px-4 py-2 text-white">
+      Começar
+    </button>
+  );
+}
+```
+
+## Próximos passos
+
+Depois do primeiro projeto, vale estudar:
+
+- rotas dinâmicas;
+- Metadata API;
+- Server Components;
+- Client Components;
+- Route Handlers;
+- deploy;
+- integração com banco de dados.
+
+## Deploy
+
+O caminho mais simples costuma ser publicar na Vercel. Conecte o repositório, configure variáveis de ambiente e faça o deploy.
+
+## Fechamento
+
+Next.js ajuda a sair de uma interface React isolada para uma aplicação completa. Entender `page.tsx`, `layout.tsx`, componentes e rotas já cria uma base sólida para evoluir.

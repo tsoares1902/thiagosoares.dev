@@ -1,0 +1,102 @@
+---
+title: "O que são Hooks no React e por que eles mudaram a forma de escrever componentes"
+description: "Entenda o que são Hooks, por que surgiram e como eles permitem trabalhar com estado e efeitos em componentes funcionais."
+category: "React"
+publishedAt: "2026-04-23"
+readingTime: "7 min"
+slug: "o-que-sao-hooks-react"
+---
+
+Hooks são funções especiais do React que permitem usar recursos como estado, efeitos e contexto dentro de componentes funcionais.
+
+Antes dos Hooks, muitos recursos avançados dependiam de componentes de classe.
+
+## Antes dos Hooks
+
+Componentes de classe eram comuns:
+
+```tsx
+import { Component } from "react";
+
+class Counter extends Component {
+  state = {
+    count: 0
+  };
+
+  render() {
+    return <button>{this.state.count}</button>;
+  }
+}
+```
+
+Esse modelo funcionava, mas podia gerar código mais verboso e difícil de reutilizar.
+
+## useState
+
+O `useState` permite guardar estado em um componente funcional:
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      {count}
+    </button>
+  );
+}
+```
+
+## useEffect
+
+O `useEffect` permite executar efeitos depois da renderização.
+
+```tsx
+"use client";
+
+import { useEffect, useState } from "react";
+
+export function Clock() {
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setNow(new Date());
+    }, 1000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return <time>{now.toLocaleTimeString("pt-BR")}</time>;
+}
+```
+
+## Regras dos Hooks
+
+Hooks precisam seguir algumas regras:
+
+- chame Hooks apenas no topo do componente;
+- não chame Hooks dentro de `if`, loops ou funções internas;
+- chame Hooks apenas em componentes React ou custom Hooks.
+
+## Custom Hooks
+
+Você também pode criar seus próprios Hooks:
+
+```tsx
+function useToggle(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
+
+  const toggle = () => setValue((current) => !current);
+
+  return { value, toggle };
+}
+```
+
+## Fechamento
+
+Hooks mudaram o React porque simplificaram componentes funcionais e abriram um caminho melhor para reutilizar lógica de UI sem depender de classes.

@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { seoConfig } from "@/config/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Thiago Soares",
+    name: seoConfig.siteName,
     short_name: "Thiago",
     start_url: "/",
     display: "standalone",

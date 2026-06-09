@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import { ArticleHeader } from "@/components/articles/article-header";
 import { Container } from "@/components/ui/container";
-import { siteConfig } from "@/config/site";
+import { seoConfig } from "@/config/seo";
 import { getArticleBySlug, getArticleSlugs } from "@/lib/articles";
 import { mdxComponents } from "@/components/mdx/mdx-components";
 
@@ -31,7 +31,7 @@ export async function generateMetadata({
 
   try {
     const article = await getArticleBySlug(slug);
-    const url = `${siteConfig.url}${article.metadata.href}`;
+    const url = `${seoConfig.siteUrl}${article.metadata.href}`;
 
     return {
       title: article.metadata.title,
@@ -44,12 +44,12 @@ export async function generateMetadata({
         title: article.metadata.title,
         description: article.metadata.description,
         url,
-        siteName: siteConfig.name,
+        siteName: seoConfig.siteName,
         publishedTime: article.metadata.publishedAt,
-        authors: [siteConfig.name],
+        authors: [seoConfig.siteName],
         images: [
           {
-            url: siteConfig.ogImage,
+            url: seoConfig.openGraphImagePath,
             width: 1200,
             height: 630,
             alt: article.metadata.title
@@ -60,7 +60,7 @@ export async function generateMetadata({
         card: "summary_large_image",
         title: article.metadata.title,
         description: article.metadata.description,
-        images: [siteConfig.ogImage]
+        images: [seoConfig.openGraphImagePath]
       }
     };
   } catch {

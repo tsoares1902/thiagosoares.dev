@@ -1,0 +1,123 @@
+---
+title: "Entendendo a Call Stack no Node.js: o que acontece quando seu código executa"
+description: "Uma explicação prática sobre a pilha de chamadas, stack trace, código síncrono e a relação com o Event Loop."
+category: "Node.js"
+publishedAt: "2026-01-29"
+readingTime: "8 min"
+slug: "entendendo-call-stack-nodejs"
+---
+
+A Call Stack é uma das estruturas mais importantes para entender como JavaScript executa código.
+
+Ela é a pilha de chamadas. Toda vez que uma função é chamada, ela entra nessa pilha. Quando termina, ela sai. Parece simples, mas esse comportamento explica erros, stack traces, recursão e parte da relação entre código síncrono e Event Loop.
+
+## Um exemplo simples
+
+```ts
+function first() {
+  second();
+}
+
+function second() {
+  third();
+}
+
+function third() {
+  console.log("fim");
+}
+
+first();
+```
+
+A execução acontece assim:
+
+```txt
+first()
+second()
+third()
+console.log()
+```
+
+Quando `console.log` termina, cada função sai da pilha na ordem inversa.
+
+## LIFO
+
+A Call Stack segue o modelo LIFO:
+
+```txt
+Last In, First Out
+```
+
+Ou seja, a última função a entrar é a primeira a sair. Isso é o que permite ao JavaScript saber para onde voltar depois que uma função termina.
+
+## Stack trace
+
+Quando um erro acontece, o JavaScript mostra um stack trace. Ele é uma fotografia da pilha naquele momento.
+
+```ts
+function parseUser() {
+  throw new Error("Usuário inválido");
+}
+
+function createUser() {
+  parseUser();
+}
+
+createUser();
+```
+
+O erro mostra o caminho das chamadas. Em aplicações reais, isso ajuda a descobrir onde o problema começou.
+
+## Stack overflow
+
+Se uma função chama a si mesma sem condição de parada, a pilha cresce até estourar.
+
+```ts
+function loop() {
+  loop();
+}
+
+loop();
+```
+
+O resultado costuma ser algo como `Maximum call stack size exceeded`.
+
+Recursão não é errada, mas precisa de uma condição clara de parada.
+
+## Relação com o Event Loop
+
+Código síncrono entra na Call Stack e precisa terminar antes que outras tarefas sejam processadas.
+
+```ts
+console.log("início");
+
+setTimeout(() => {
+  console.log("timeout");
+}, 0);
+
+console.log("fim");
+```
+
+A saída será:
+
+```txt
+início
+fim
+timeout
+```
+
+Mesmo com `0` milissegundos, o callback do `setTimeout` espera a pilha esvaziar. Depois disso, o Event Loop pode mover a tarefa para execução.
+
+## Por que isso importa?
+
+Entender a Call Stack ajuda a:
+
+- ler erros com mais clareza;
+- evitar bloqueios no código síncrono;
+- entender recursão;
+- compreender melhor o Event Loop;
+- depurar aplicações Node.js com mais confiança.
+
+## Fechamento
+
+Node.js consegue lidar muito bem com I/O assíncrono, mas o JavaScript continua executando cada trecho de código em uma pilha de chamadas. Saber como essa pilha funciona é um passo importante para escrever código mais previsível.

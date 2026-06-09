@@ -1,0 +1,132 @@
+---
+title: "Montando um ambiente profissional para Node.js no Ubuntu"
+description: "Ferramentas, terminal, Git, Docker, VS Code, SSH e AWS CLI para trabalhar melhor com Node.js no Linux."
+category: "Linux"
+publishedAt: "2026-02-26"
+readingTime: "10 min"
+slug: "ambiente-profissional-nodejs-ubuntu"
+---
+
+Um bom ambiente de desenvolvimento não precisa ser cheio de ferramentas. Ele precisa ser previsível, confortável e fácil de manter.
+
+Quando configuro Ubuntu para trabalhar com Node.js, costumo preparar alguns blocos: sistema, terminal, Git, Node com NVM, editor, Docker, SSH e ferramentas de cloud.
+
+## Atualizando o Ubuntu
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+Depois instalo utilitários básicos:
+
+```bash
+sudo apt install -y curl git unzip build-essential ca-certificates gnupg lsb-release
+```
+
+## Git
+
+Configure seu nome e email:
+
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "voce@email.com"
+```
+
+Também gosto de configurar a branch inicial:
+
+```bash
+git config --global init.defaultBranch main
+```
+
+## Node.js com NVM
+
+Instale o NVM:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+
+Depois:
+
+```bash
+nvm install --lts
+nvm alias default lts/*
+```
+
+## VS Code
+
+O VS Code funciona muito bem para Node.js, React, Next.js e NestJS. Algumas extensões úteis:
+
+- ESLint;
+- Prettier;
+- Tailwind CSS IntelliSense;
+- Docker;
+- GitLens;
+- REST Client.
+
+## Docker
+
+Docker ajuda a padronizar bancos, filas e serviços de apoio.
+
+```bash
+sudo apt install -y docker.io docker-compose-v2
+sudo usermod -aG docker "$USER"
+```
+
+Depois reinicie a sessão e teste:
+
+```bash
+docker version
+docker compose version
+```
+
+## SSH
+
+Gere uma chave:
+
+```bash
+ssh-keygen -t ed25519 -C "voce@email.com"
+```
+
+Mostre a chave pública:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Use essa chave no GitHub, GitLab, servidores e provedores cloud.
+
+## AWS CLI
+
+Para projetos que usam AWS:
+
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+Configure:
+
+```bash
+aws configure
+```
+
+## Organização de diretórios
+
+Uma estrutura simples ajuda:
+
+```txt
+~/Code
+  /clients
+  /personal
+  /sandbox
+  /studies
+```
+
+Não é uma regra universal, mas reduz bagunça e facilita backups.
+
+## Fechamento
+
+Um ambiente profissional não é sobre instalar tudo. É sobre ter uma base confiável para trabalhar, testar, versionar e entregar software sem perder tempo com problemas repetidos de configuração.

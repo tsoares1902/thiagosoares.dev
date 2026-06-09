@@ -1,3 +1,4 @@
+import { Building2 } from "lucide-react";
 import { aboutContent, organizations, skillCards } from "@/content/about";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -20,8 +21,10 @@ export function AboutSection() {
         </div>
 
         <div className="mt-12 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[linear-gradient(135deg,var(--color-surface-soft),var(--color-surface-warm))] p-6 shadow-[0_20px_60px_rgba(0,100,55,0.05)]">
-          <p className="text-sm font-semibold text-[var(--color-foreground)]">
-            <span className="mr-2 inline-flex h-2 w-6 rounded-full bg-[var(--color-palestra-red)] align-middle" />
+          <p className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-foreground)]">
+            <span className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--color-border-strong)] bg-white text-[var(--color-primary)] shadow-sm">
+              <Building2 className="size-4" />
+            </span>
             {aboutContent.organizationsTitle}
           </p>
 

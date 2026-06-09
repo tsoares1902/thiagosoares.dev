@@ -1,0 +1,86 @@
+---
+title: "A história do Node.js: por que ele surgiu e como mudou o desenvolvimento backend"
+description: "Uma visão sobre o surgimento do Node.js, V8, I/O não bloqueante, Event Loop, npm e sua adoção no backend moderno."
+category: "Node.js"
+publishedAt: "2026-02-12"
+readingTime: "9 min"
+slug: "historia-nodejs-evolucao-backend"
+---
+
+Node.js não surgiu apenas para levar JavaScript ao backend. Ele nasceu como resposta a um problema comum em servidores web: lidar com muitas conexões simultâneas sem desperdiçar recursos.
+
+Antes dele, muitos servidores seguiam modelos baseados em threads ou processos por requisição. Esse modelo funcionava, mas podia ficar caro quando muitas conexões permaneciam abertas esperando I/O.
+
+## O contexto antes do Node.js
+
+Aplicações modernas precisam conversar com banco de dados, arquivos, APIs externas, filas, caches e serviços de terceiros. Muitas dessas operações passam mais tempo esperando resposta do que usando CPU.
+
+Se cada espera prende uma thread, o servidor escala pior.
+
+## Ryan Dahl e a ideia original
+
+Ryan Dahl apresentou o Node.js em 2009. A proposta era combinar:
+
+- JavaScript;
+- V8;
+- I/O não bloqueante;
+- Event Loop;
+- APIs simples para rede e arquivos.
+
+Essa combinação criou uma plataforma orientada a eventos, muito adequada para aplicações de rede.
+
+## O papel da V8
+
+A V8 é a engine JavaScript criada pelo Google para o Chrome. Ela compila JavaScript para código de máquina e entrega boa performance.
+
+Node.js aproveitou essa engine para executar JavaScript fora do navegador:
+
+```txt
+JavaScript
+V8
+Sistema operacional
+```
+
+## I/O não bloqueante
+
+Em vez de travar a execução enquanto espera um arquivo ou rede, Node.js registra a operação e continua trabalhando.
+
+```ts
+import { readFile } from "node:fs/promises";
+
+async function loadConfig() {
+  const content = await readFile("config.json", "utf8");
+
+  return JSON.parse(content);
+}
+```
+
+Enquanto o arquivo é lido, o processo pode continuar atendendo outras tarefas.
+
+## Event Loop
+
+O Event Loop coordena callbacks, timers, promessas e operações assíncronas. Ele é uma das peças centrais do modelo do Node.js.
+
+Isso não significa que Node.js é mágico. Código CPU-bound ainda pode bloquear a execução. Mas para APIs, integrações e aplicações orientadas a I/O, o modelo costuma funcionar muito bem.
+
+## npm e ecossistema
+
+O npm ajudou Node.js a crescer. Ele tornou simples instalar bibliotecas, compartilhar pacotes e criar ferramentas.
+
+Com o tempo, surgiram frameworks e ferramentas como Express, NestJS, Fastify, Prisma, Vite, Next.js e muitos outros projetos do ecossistema JavaScript.
+
+## Por que ainda é relevante?
+
+Node.js continua forte porque une produtividade e performance suficiente para muitos cenários:
+
+- APIs REST e GraphQL;
+- BFFs;
+- CLIs;
+- workers;
+- integrações com filas;
+- aplicações realtime;
+- ferramentas de build.
+
+## Fechamento
+
+Node.js mudou o backend porque aproximou frontend e servidor, popularizou JavaScript fora do navegador e consolidou um modelo assíncrono eficiente para aplicações modernas.

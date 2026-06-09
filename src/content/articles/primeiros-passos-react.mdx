@@ -1,0 +1,112 @@
+---
+title: "Primeiros passos com React: entendendo componentes, props e estado"
+description: "Uma introdução prática ao React explicando componentes, propriedades, estado e como pensar interfaces em partes menores."
+category: "React"
+publishedAt: "2026-04-09"
+readingTime: "8 min"
+slug: "primeiros-passos-react"
+---
+
+React é uma biblioteca JavaScript para construir interfaces. A ideia principal é dividir a tela em componentes e descrever como ela deve aparecer a partir dos dados disponíveis.
+
+## Componentes
+
+Um componente é uma função que retorna UI.
+
+```tsx
+function Welcome() {
+  return <h1>Bem-vindo</h1>;
+}
+```
+
+Componentes podem representar botões, cards, listas, formulários ou páginas inteiras.
+
+## JSX
+
+JSX permite escrever uma sintaxe parecida com HTML dentro do JavaScript:
+
+```tsx
+function UserName() {
+  const name = "Thiago";
+
+  return <strong>{name}</strong>;
+}
+```
+
+As chaves `{}` permitem usar expressões JavaScript dentro da marcação.
+
+## Props
+
+Props são dados que um componente recebe.
+
+```tsx
+type UserCardProps = {
+  name: string;
+  role: string;
+};
+
+function UserCard({ name, role }: UserCardProps) {
+  return (
+    <article>
+      <h2>{name}</h2>
+      <p>{role}</p>
+    </article>
+  );
+}
+```
+
+Uso:
+
+```tsx
+<UserCard name="Ana" role="Frontend Engineer" />
+```
+
+## Estado
+
+Estado representa dados que mudam ao longo do tempo.
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Cliques: {count}
+    </button>
+  );
+}
+```
+
+Quando o estado muda, o React renderiza novamente o componente.
+
+## Composição
+
+React incentiva composição. Em vez de criar componentes gigantes, combine componentes pequenos:
+
+```tsx
+function Page() {
+  return (
+    <main>
+      <Header />
+      <UserCard name="Ana" role="Frontend Engineer" />
+      <Footer />
+    </main>
+  );
+}
+```
+
+## Boas práticas iniciais
+
+- crie componentes pequenos;
+- dê nomes claros;
+- evite duplicar lógica;
+- mantenha estado perto de onde ele é usado;
+- prefira props explícitas.
+
+## Fechamento
+
+Aprender React é aprender a pensar a interface em partes. Componentes, props e estado formam a base para construir telas mais organizadas e fáceis de evoluir.

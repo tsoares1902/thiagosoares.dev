@@ -1,0 +1,93 @@
+---
+title: "Entendendo o useState: controlando estado em aplicações React"
+description: "Um guia prático para entender como o useState funciona e como ele ajuda a controlar valores dentro de componentes React."
+category: "React"
+publishedAt: "2026-05-07"
+readingTime: "7 min"
+slug: "entendendo-usestate-react"
+---
+
+Estado é qualquer informação que pode mudar e afetar o que aparece na tela.
+
+No React, o Hook `useState` é uma das formas mais simples de controlar estado dentro de componentes funcionais.
+
+## Importando useState
+
+```tsx
+"use client";
+
+import { useState } from "react";
+```
+
+Em Next.js App Router, componentes que usam estado no navegador precisam da diretiva `"use client"`.
+
+## Criando um contador
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Cliques: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Incrementar
+      </button>
+    </div>
+  );
+}
+```
+
+`count` é o valor atual. `setCount` é a função que atualiza esse valor.
+
+## Atualizando com estado anterior
+
+Quando o novo valor depende do anterior, prefira a forma funcional:
+
+```tsx
+setCount((currentCount) => currentCount + 1);
+```
+
+Isso evita problemas quando várias atualizações acontecem próximas.
+
+## Input controlado
+
+`useState` também é muito usado em formulários:
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+export function NameField() {
+  const [name, setName] = useState("");
+
+  return (
+    <label>
+      Nome
+      <input
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+      />
+      <span>{name}</span>
+    </label>
+  );
+}
+```
+
+O valor do input fica controlado pelo React.
+
+## Cuidados comuns
+
+- não altere objetos ou arrays diretamente;
+- use a forma funcional quando depender do estado anterior;
+- evite guardar estado que pode ser calculado;
+- mantenha o estado no componente mais próximo do uso.
+
+## Fechamento
+
+`useState` é pequeno, mas é uma das bases do React. Entender bem esse Hook ajuda a construir interações, formulários e componentes mais previsíveis.

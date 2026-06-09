@@ -15,7 +15,8 @@ export const organizations: Organization[] = [
   { name: "Finnet" },
   { name: "Dr. Consulta" },
   { name: "Via Varejo" },
-  { name: "ClickBus" }
+  { name: "ClickBus" },
+  { name: "Cury Construtora" }
 ];
 
 export const skillCards: SkillCard[] = [

@@ -29,7 +29,7 @@ export default function Home() {
         <Container className="relative z-10 flex min-h-[calc(100vh-var(--header-height))] items-center py-24">
           <div className="max-w-3xl">
             <p className="mb-6 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur">
-              Node.js (NestJS) · React (Next.js) · MongoDB · AWS
+              Node.js (NestJS) · PHP (Laravel) · React · MongoDB · AWS
             </p>
 
             <h1 className="text-balance text-5xl font-semibold tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
